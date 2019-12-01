@@ -1,0 +1,268 @@
+@include('layouts.appadmin')
+@include('layouts.sidebaradmin');
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+.column {
+  float: left;
+  width: 33.333333%;
+  margin-bottom: 16px;
+  padding: 0 8px;
+}
+
+@media screen and (max-width: 650px) {
+  .column {
+    width: 100%;
+    display: block;
+  }
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.container {
+  padding: 0 16px;
+}
+
+.container::after, .row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.title {
+  color: grey;
+}
+
+.button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+}
+
+.button:hover {
+  background-color: #555;
+}
+.form-style-10{
+    width:950px;
+    padding:30px;
+    margin-left:290px ;
+    background: #FFF;
+    border-radius: 10px;
+    -webkit-border-radius:10px;
+    -moz-border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.13);
+    -moz-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.13);
+    -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.13);
+}
+
+
+.form-style-10 .section{
+    font: normal 20px 'Bitter', serif;
+    color: #2A88AD;
+    margin-bottom: 5px;
+}
+.form-style-10 .section span {
+    background: #2A88AD;
+    padding: 5px 10px 5px 10px;
+    position: absolute;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border: 4px solid #fff;
+    font-size: 14px;
+    margin-left: -45px;
+    color: #fff;
+    margin-top: -3px;
+}
+
+ul.breadcrumb {
+    padding: 10px 16px;
+    list-style: none;
+    background-color: #eee;
+}
+ul.breadcrumb li {
+    display: inline;
+    font-size: 18px;
+}
+ul.breadcrumb li+li:before {
+    padding: 8px;
+    color: black;
+    content: ">\00a0";
+}
+ul.breadcrumb li a {
+    color: #0275d8;
+    text-decoration: none;
+}
+ul.breadcrumb li a:hover {
+    color: #01447e;
+    text-decoration: underline;
+}
+input[type=text1], select {
+
+    width: 100%;
+    padding: 7px 7px;
+    margin-top:  0px;
+    margin-down:  8px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    box-sizing: border-box;
+}
+input[type=number], select {
+
+    width: 100%;
+    padding: 7px 7px;
+    margin-top:  0px;
+    margin-down:  8px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    box-sizing: border-box;
+}
+input[type=date], select {
+
+    width: 100%;
+    padding: 7px 7px;
+    margin-top:  0px;
+    margin-down:  8px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    box-sizing: border-box;
+}
+
+input[type=submit] {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type=submit]:hover {
+    background-color: #45a049;
+}
+</style>
+</head>
+<body>
+<h1 style="text-align:center;">Insert Land</h1>
+  <div class="container" style="margin-left:270px;margin-top:20px;width:1000px">
+    <ul class="breadcrumb">
+      <li>Insert Khatian and Land</li>
+      <li>Insert Deed</li>
+      <li>Insert Tax</li>
+      <li style="font-weight: bold;">Owner</li>
+    </ul>
+  </div>
+
+<div style="margin-left:280px; margin-right:28px; ">
+
+<div class="row">
+  <div class="column" >
+    <div class="card" >
+      <div class="container" >
+        <h2 style="text-align: center;">Public Organizations</h2>
+        <br>
+        <form><button class="button" type="submit"  >as owner </button></form>
+        <br>
+      </div>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+      <div class="container">
+        <h2  style="text-align: center;">Private Organizations</h2>
+        <br>
+        <form><button class="button" type="submit"  style="color:yellow" > as owner </button></form><br>
+      </div>
+    </div>
+  </div>
+  <div class="column">
+    <div class="card">
+      <div class="container">
+        <h2  style="text-align: center;">Person(s)</h2>
+        <br>
+        <form><button class="button" type="submit" >as owner</button></form><br>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<div>
+<form method="post" action="insertlandownerprivateadmin1">
+  @csrf
+  <input type="hidden" name="lid" value="{{ $lid }}">
+<div class="form-style-10">
+    <div class="section"><span>5</span><b>Private Organization Information</b></div>
+    <script>
+    $(document).ready(function() {
+      $("#in").change(function() {
+        var selection1 = document.getElementById('org').value;
+        var selection2 = document.getElementById('in').value;
+        $.post('orgpriv',{
+            "_token": "{{ csrf_token() }}",d1 : selection1,"_token": "{{ csrf_token() }}",d2 : selection2
+        }).done(function (response) {
+          // if(response=='ok') {}
+          var jsondata = JSON.stringify(response);
+          jsondata = JSON.parse(jsondata);
+          console.log(jsondata['thana']);
+          //  alert(jsondata['thana'].length);
+            if(jsondata['thana'].length<1)
+            {
+              alert('Organization Not Available');
+               window.location.reload();
+            }
+            // window.location.reload();
+        }).fail(function() {
+            alert('failed');
+        });
+      });
+    });
+
+    </script>
+
+<div class="container" style="margin-left:10px;margin-top:20px;">
+{{$lid}}
+<label>Organization Name</label>
+<br>
+<input required autofocus  id="org" type="text1" name="org_name" >
+<br><br>
+<label>Inistitution No</label>
+<br>
+<input required autofocus id="in" type="text1" name="in_no" >
+<br><br>
+<input type="submit" value="Submit">
+
+
+</div>
+</div>
+
+</form>
+</div>
+
+</body>
+</html>
